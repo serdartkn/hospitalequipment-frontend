@@ -1,0 +1,67 @@
+<div class="row">
+    <div class="mb-1 col-md-10" >
+        <input type="text" [(ngModel)]="filterText" class="form-control" id="filtertext" placeholder="Search Equipments"/>
+    </div>
+
+    <div class="mb-1 col-md-2">
+        <li class="text-center" 
+        (click)="clearCurrentEquipment()" 
+        [class]="getAllEquipmentClass()" 
+        routerLink = "">List All
+        </li>
+    </div>
+</div>
+
+<div class="row" style="align-items: center;">
+    <div class="col-md-12">
+        <th class="list-group-item list-group-item-warning text-center" >Equipments
+            <img src="https://www.serdartekin.com/add.png" alt="Add A New Equipment" routerLink="/equipment/add" >
+        </th>
+    </div>
+</div>
+
+<table class="table">
+    <thead>
+        <tr class="text-center" style="vertical-align: middle;">
+            <!-- <th >Id</th> -->
+            <th>Equipment Name</th>
+            <th>Unit Price</th>
+            <th>Units In Stock</th>
+            <th>Clinic Name</th>
+            <th>Usage Rate</th>
+            <th>Procurement Date</th>
+            <th>Tools</th>
+        </tr>
+    </thead>
+    
+    <tbody>        
+        <div *ngIf="dataLoaded == false" class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+
+        <tr *ngFor = "let equipment of equipmentsDetails |filterEquipment:filterText"  style="vertical-align: middle;">
+        <!-- <td >{{equipment.id}}</td> -->
+        <td>{{equipment.equipmentName}}</td>
+        <td class="text-center">{{equipment.unitPrice | currency}}</td>
+        <td class="text-center">{{equipment.unitsInStock}}</td>
+        <td class="text-center">{{equipment.clinicName}}</td>
+        <td class="text-center">%{{equipment.usageRate}}</td>
+        <td class="text-center">{{equipment.procurementDate}}</td>
+        <td class="text-center">
+            <div>
+                <td><img src="https://www.serdartekin.com/edit.png" alt="Edit" routerLink="/equipment/update"></td>
+                <td ><img src="https://www.serdartekin.com/delete.png" alt="Delete" routerLink="/equipment/delete"></td>
+            </div>
+        </td>
+        </tr> 
+
+    </tbody>
+
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          <li *ngFor="let page of pager.pageList" class="page-item">
+            <a class="page-link">{{page}}</a>
+          </li>
+        </ul>
+      </nav>
+</table>   

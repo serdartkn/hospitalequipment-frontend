@@ -1,0 +1,49 @@
+<div class="content">
+  <div class="col-md-12">
+    
+    <div class="card">
+      <div class="card-header"><h5 class="title">Add Equipment</h5></div>
+
+      <div class="card-body">
+        <form [formGroup]="equipmentAddForm">
+
+          <div class="mb-3 form-group">
+            <label for="equipmentName" class="col-form-label">Equipment Name</label>
+            <input type="text" class="form-control" id="equipmentName" formControlName="name">
+          </div>
+
+          <div class="mb-3 form-group">
+            <label for="procurementDate" class="col-form-label">Procurement Date</label>
+            <input type="datetime" class="form-control" id="procurementDate-" formControlName="procurementDate">
+          </div>
+
+          <div class="mb-3 form-group">
+            <label for="unitsInStock" class="col-form-label">Units In Stock</label>
+            <input type="number" class="form-control" id="unitsInStock" formControlName="unitsInStock">
+          </div>
+
+          <div class="mb-3 form-group">
+            <label for="unitPrice" class="col-form-label">Unit Price</label>
+            <input type="number" class="form-control" id="unitPrice" formControlName="unitPrice">
+          </div> 
+
+          <div class="mb-3 form-group">
+            <label for="usageRate" class="col-form-label">Usage Rate</label>
+            <input type="number" class="form-control" id="usageRate" formControlName="usageRate">
+          </div>
+
+          <div class="mb-3 form-group">
+            <label class="col-form-label">Clinic</label>
+            <select class="form-select" formControlName="clinicId">
+              <option *ngFor="let clinic of clinics" [ngValue]="clinic.id">{{clinic.name}}</option>
+            </select>
+          </div>
+          
+        </form>            
+      </div>
+      <div class="card-footer">
+        <button class="btn btn-fill btn-success" (click)="add()">Add</button>
+      </div>
+    </div>
+  </div>
+</div>

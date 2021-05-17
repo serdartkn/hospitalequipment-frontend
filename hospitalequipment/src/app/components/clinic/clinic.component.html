@@ -1,0 +1,43 @@
+<div class="row mb-1">
+  <div class="col-md-12">
+    <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="Search Clinic">
+  </div>
+
+  <div class="col-md-12">
+    <li class=" text-center" 
+    (click)="clearCurrentClinic()" 
+    [class]="getAllClinicClass()" 
+    routerLink = "">List All
+    </li>
+  </div>
+</div>
+
+<div class="row" style="align-items: center;">
+  <div class="col-md-12">
+    <th class="list-group-item list-group-item-warning text-center">Clinics
+      <img src="https://www.serdartekin.com/add.png" alt="Add A New Clinic" routerLink="/clinic/add" >
+    </th>
+  </div>
+</div>
+
+<ul class="list-group">
+  <div *ngIf="dataLoaded == false" 
+  class="spinner-border text-primary" 
+  role="status">
+  <span class="visually-hidden">Loading...</span>
+  </div>
+
+<div class="row">
+  <div class="col-md-12">
+    <li (click)="setCurrentClinic(clinic)"
+    routerLink="/clinic/id/{{clinic.id}}"
+    *ngFor="let clinic of clinics | filterClinic:filterText"
+    [class]="getClinicClass(clinic)">{{ clinic.name }}
+    <ul>
+      <a><img src="https://www.serdartekin.com/edit.png" alt="Edit" routerLink="/clinic/update"></a>
+    <a><img src="https://www.serdartekin.com/delete.png" alt="Delete" routerLink="/clinic/add">  </a>
+    </ul>
+  </li>
+  </div>
+</div>
+</ul>

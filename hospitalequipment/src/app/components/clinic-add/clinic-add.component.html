@@ -1,0 +1,21 @@
+<div class="content">
+    <div class="col-md-12">
+      
+      <div class="card">
+        <div class="card-header"><h5 class="title">Add Clinic</h5></div>
+  
+        <div class="card-body">
+          <form [formGroup]="clinicAddForm">
+  
+            <div class="mb-3 form-group">
+              <label for="clinicName" class="col-form-label">Clinic Name</label>
+              <input type="text" class="form-control" id="clinicName" formControlName="name">
+            </div>
+          </form>            
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-fill btn-success" (click)="add()">Add</button>
+        </div>
+      </div>
+    </div>
+  </div>
