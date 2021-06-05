@@ -22,7 +22,6 @@ import { ClinicDeleteComponent } from './components/clinic-delete/clinic-delete.
 import { EquipmentDeleteComponent } from './components/equipment-delete/equipment-delete.component';
 import { EquipmentUpdateComponent } from './components/equipment-update/equipment-update.component';
 import { EquipmentAddComponent } from './components/equipment-add/equipment-add.component';
-import { PagelistPipe } from './pipes/pagelist.pipe';
 
 @NgModule({
   declarations: [
@@ -37,8 +36,7 @@ import { PagelistPipe } from './pipes/pagelist.pipe';
     ClinicDeleteComponent,
     EquipmentDeleteComponent,
     EquipmentUpdateComponent,
-    EquipmentAddComponent,
-    PagelistPipe
+    EquipmentAddComponent
   ],
   imports: [
     BrowserModule,

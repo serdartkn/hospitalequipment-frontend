@@ -18,8 +18,6 @@ equipmentsDetails:EquipmentDetailsDto[]=[];
 dataLoaded = false;
 currentEquipment : EquipmentDetailsDto;
 filterText = "";
-pager: Pager;
-pagenumber:number;
 
 constructor(private equipmentService:EquipmentService, private activatedRoute:ActivatedRoute) { }
 
@@ -30,12 +28,7 @@ constructor(private equipmentService:EquipmentService, private activatedRoute:Ac
       } else{
         this.getEquipmentsDetails();
       }
-
-      this.pager = this.getPager(this.pagenumber);
-      console.log(this.pagenumber)
-    })
-
- 
+    }) 
 
   }
 
@@ -50,10 +43,7 @@ constructor(private equipmentService:EquipmentService, private activatedRoute:Ac
     this.equipmentService.getEquipmentsDetails().subscribe(response=>{
       this.equipmentsDetails = response.data;
       this.dataLoaded = true;
-      this.pagenumber = this.equipmentsDetails.length;
-      })
-
- 
+      }) 
   }
 
   getEquipmentDetailsByClinic(id:number){
@@ -75,6 +65,5 @@ constructor(private equipmentService:EquipmentService, private activatedRoute:Ac
       return 'list-group-item list-group-item-info text-center';
     }
   }
-
 
 }

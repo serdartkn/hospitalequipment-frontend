@@ -10,8 +10,8 @@ import { ClinicService } from 'src/app/services/clinic.service';
   styleUrls: ['./clinic-update.component.css']
 })
 export class ClinicUpdateComponent implements OnInit {
-  clinicUpdateForm:FormGroup;
-  clinics:Clinic;
+  // clinicUpdateForm:FormGroup;
+  // clinics:Clinic;
   
   
   constructor(private clinicService:ClinicService, private formBuilder:FormBuilder, private toastrService:ToastrService) { }
